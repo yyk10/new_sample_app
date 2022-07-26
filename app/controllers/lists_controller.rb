@@ -32,6 +32,12 @@ class ListsController < ApplicationController
    redirect_to list_path(list.id)
   end
   
+  def destoroy
+    list = List.find(params[:id]) # データ（レコードを一件取得
+    list.destoroy　#データ（レコード）を削除
+    redirect_to '/lists' #投稿一覧画面の削除
+  end
+  
   private
   def list_params
    params.require(:list).permit(:title, :body, :image)
